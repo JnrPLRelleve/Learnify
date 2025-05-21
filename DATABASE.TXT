@@ -1,0 +1,30 @@
+=========DATABASE STRUCTURE=======
+Authentication: Login/Register using PHP Sessions
+Database Structure:
+users (stores user info)
+courses (stores course details)
+enrollments (tracks which students enrolled in which courses)
+quizzes (stores quiz questions and answers)
+quiz_results (stores student quiz attempts)
+File Upload System: PHP handles PDFs, videos, and images
+Progress Tracking: MySQL tracks student course completion
+
+-- SQL script to create tables in the learnify database
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fullname VARCHAR(255) NOT NULL,
+    username VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('student', 'instructor', 'admin') NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE courses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    instructor_id INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (instructor_id) REFERENCES users(id)
+);
