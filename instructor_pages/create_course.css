@@ -1,0 +1,61 @@
+
+.container {
+    border: 2px solid #000000;
+    border-radius: px;
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.create-course-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.create-course-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+}
+
+.h1{
+    text-align:center;
+}
+
+.logout_btn1 {
+    background-color: #e53935;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    align-items: center;
+    margin: 15px 0;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.logout_btn1:hover {
+    background-color: #b71c1c;
+}
+
+.settings_btn1 {
+    font-size: 12px;
+    background-color: #5b6291;
+    color: white;
+    border-radius: 20px;
+    margin-top: 150px;
+    height: 40px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+.settings_btn1:hover {
+    background-color: #4a5470;
+}
