@@ -16,7 +16,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Admin List</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="admin_list.css" />
 </head>
 <body>
     
@@ -47,7 +47,16 @@
                 <?php endif; ?>
             </div>
             <?php $conn->close(); ?>
-            <button class="back-button" onclick="window.location.href='admin.php'">Back to Dashboard</button>
+            <?php
+                $referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
+                $backUrl = 'admin.php';
+                if (strpos($referer, 'studentList.php') !== false) {
+                    $backUrl = 'studentList.php';
+                } elseif (strpos($referer, 'instructorList.php') !== false) {
+                    $backUrl = 'instructorList.php';
+                }
+            ?>
+            <button class="back-button" onclick="window.location.href='<?php echo $backUrl; ?>'">Back to Dashboard</button>
         </div>
 
 </body>

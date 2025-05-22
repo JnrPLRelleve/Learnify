@@ -21,11 +21,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             // Redirect based on role
             if ($user['role'] === 'instructor') {
-                header("Location: jehan/instructor_dashboard.php");
+                header("Location: ../instructor_pages/instructor_dashboard.php");
                 
                 
             } elseif ($user['role'] === 'student') {
-                header("Location: students_dash/student_dashboard.php");
+                header("Location: ../students_dash/student_dashboard.php");
             }
             exit();
         } else {
@@ -48,7 +48,7 @@ $conn->close();
 </head>
 <body>
     <div class="container">
-        <img src="https://images.pexels.com/photos/301920/pexels-photo-301920.jpeg" alt="Study image">
+        <img src="../images/login.jpg" alt="Study image">
         
         <div class="form-wrapper">
             <form action="loginpage.php" method="post">
@@ -60,7 +60,7 @@ $conn->close();
                 <input type="password" name="password" id="password" minlength="8" maxlength="16" required><br>
                 <a href="#" target="_blank" id="forgot_password">Forgot Password?</a><br>
                 <input type="submit" value="LOGIN"><br>
-                <a href="loginpage_Admin.php" id="signup">ADMIN</a></p>
+                <a href="../ADMIN_PAGES/loginpage_Admin.php" id="signup">ADMIN</a></p>
                 <p class="new">New User? <a href="role_Selection.html" id="signup">Signup</a></p>
         </div>
     </div>

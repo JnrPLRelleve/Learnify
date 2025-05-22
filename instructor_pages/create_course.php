@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['username']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'instructor') {
-    header('Location: ../loginpage.php');
+    header('Location: ../login_pages/loginpage.php');
     exit();
 }
 
@@ -25,7 +25,7 @@ if (
     $description = $conn->real_escape_string(trim($_POST['courseDescription']));
     $created_at = date('Y-m-d H:i:s');
     $instructor_username = $_SESSION['username'];
-    // Get instructor_id from users table
+    // Get instructor_id
     $user_query = "SELECT id FROM users WHERE username = '" . $conn->real_escape_string($instructor_username) . "' LIMIT 1";
     $user_result = $conn->query($user_query);
     if ($user_result && $user_result->num_rows > 0) {
@@ -65,7 +65,7 @@ if (
             <button class="sidebar_btn" onclick="location.href='quiz.php'">Quiz Interface</button>
             <button class="sidebar_btn" onclick="location.href='create_course.php'">Create Course</button>
             <button class="settings_btn1">Settings</button>
-            <button class="logout_btn1" type="button" onclick="window.location.href='../logout.php'">Logout</button>
+            <button class="logout_btn1" type="button" onclick="window.location.href='../login_pages/logout.php'">Logout</button>
         </aside>
         <main class="main_content create-course-center">
             

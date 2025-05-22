@@ -7,7 +7,7 @@ if ($conn->connect_error) {
 }
 
 
-// Add default admin account if it doesn't exist
+// default admin account
 $default_admin_username = 'admin';
 $default_admin_password = password_hash('admin123', PASSWORD_BCRYPT);
 $check_admin_sql = "SELECT * FROM users WHERE username = '$default_admin_username' AND role = 'admin'";
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             if ($user['role'] === 'admin') {
                 header("Location: admin.php");
             } else {
-                header("Location: user_dashboard.php"); // Adjust this for non-admin roles
+                header("Location: admin.php"); 
             }
             exit();
         } else {
@@ -57,7 +57,7 @@ $conn->close();
 </head>
 <body>
     <div class="container">
-        <img src="https://images.pexels.com/photos/714701/pexels-photo-714701.jpeg" alt="admin image">
+        <img src="../images/admin.jpg" alt="admin image">
         
         <div class="form-wrapper">
             <form action="loginpage_Admin.php" method="post">

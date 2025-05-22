@@ -1,4 +1,4 @@
-/* Global Styles */
+
 body {
     background-color: #383d53;
     display: flex;
@@ -8,7 +8,7 @@ body {
     margin: 0;
 }
 
-/* Container Styles */
+
 .main-container {
     background-color: #ffffff;
     height: 80vh;
@@ -125,7 +125,6 @@ body {
     box-sizing: border-box;
 }
 
-/* Text Content */
 .uid {
     color: #666;
     font-size: 12px;
@@ -166,7 +165,7 @@ body {
     font-size: 14px;
 }
 
-/* Button Styles */
+
 .profile-buttons {
     display: flex;
     flex-direction: column; 
@@ -175,7 +174,7 @@ body {
     width: 100%;  
 }
 
-/* Add these styles for profile button types */
+
 .logout-button,
 .admin-button {
     padding: 8px 16px;
@@ -290,7 +289,7 @@ body {
     visibility: visible;
 }
 
-/* Logout Styles */
+
 
 .logout-container {
     background-color: #ffffff;
@@ -355,7 +354,7 @@ body {
     background-color: #ff7875;
 }
 
-/* Landing Page Styles */
+
 .landing-container {
     background-color: #ffffff;
     padding: 40px;
@@ -422,7 +421,7 @@ body {
     background-color: #357ac8;
 }
 
-/* Admin List Styles */
+
 .admin-list-container {
     background-color: #8acbd0;
     padding: 30px;

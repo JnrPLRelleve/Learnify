@@ -2,6 +2,6 @@
 session_start();
 session_unset();
 session_destroy();
-header('Location: ADMIN_PAGES/loginpage_Admin.php');
+header('Location: ../landing_page/landingpage.php');
 exit();
 ?>
