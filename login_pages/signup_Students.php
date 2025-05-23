@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $role = 'student';
     $created_at = date("Y-m-d H:i:s");
 
-    // Query        the database for the last user_id (STUDENT USER)
+    // Query        
     $sql_last_id = "SELECT user_id FROM users WHERE user_id LIKE 'STU-BN-%' ORDER BY created_at DESC LIMIT 1";
     $result = $conn->query($sql_last_id);
 
