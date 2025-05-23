@@ -21,14 +21,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['ajax'])) {
     $status = 'pending';
     $created_at = date("Y-m-d H:i:s");
 
-    // Check if the username already exists
+  
     $check_sql = "SELECT * FROM users WHERE username = '$username'";
     $check_result = $conn->query($check_sql);
 
     if ($check_result->num_rows > 0) {
         echo json_encode(["status" => "error", "message" => "Username already exists."]);
     } else {
-        // Query the database for the last instructor ID
+       
         $sql_last_instructor_id = "SELECT user_id FROM users WHERE user_id LIKE 'INT-BN-%' ORDER BY created_at DESC LIMIT 1";
         $result_instructor = $conn->query($sql_last_instructor_id);
 
@@ -42,11 +42,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['ajax'])) {
             $user_id = 'INT-BN-01';
         }
 
-        // Update      the INSERT query to include the generated user_id
+        
         $sql = "INSERT INTO users (user_id, fullname, username, password, role, status, created_at) VALUES ('$user_id', '$fullname', '$username', '$password', '$role', '$status', '$created_at')";
 
         if ($conn->query($sql) === TRUE) {
-            // Set  variables after successful signup
+            
             $_SESSION['username'] = $username;
             $_SESSION['role'] = $role;
 
