@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// signup
+
 if (!isset($_SESSION['username']) || !isset($_SESSION['role'])) {
     $_SESSION['username'] = null; 
     $_SESSION['role'] = null;
