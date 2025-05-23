@@ -1,7 +1,6 @@
 <?php
 
 
-// Regen ID for security
 if (!isset($_SESSION['last_regeneration'])) {
     $_SESSION['last_regeneration'] = time();
 } elseif (time() - $_SESSION['last_regeneration'] > 24000) {  //40min regen
