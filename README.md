@@ -1,8 +1,8 @@
 ﻿# Website Name - Learnify ( Group 1 )
 
-Group Mambers:
-Pena
-Melano
-Mitra
-Relleve
+Group Members:
+Pena,
+Melano,
+Mitra,
+Relleve,
 Ludwig
