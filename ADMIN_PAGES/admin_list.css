@@ -210,9 +210,10 @@ body {
     margin-left: auto;
     flex-shrink: 0;
 }
-
-.edit-button,
-.delete-button {
+.add-admin-button{
+    margin-left: 1420px;
+}
+.edit-button,.add-admin-button,.delete-button {
     padding: 8px 16px;
     border: none;
     border-radius: 4px;
@@ -222,11 +223,11 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.edit-button {
+.edit-button, .add-admin-button {
     background-color: #4ba0fa;
 }
 
-.edit-button:hover {
+.edit-button:hover, .add-admin-button:hover {
     background-color: #357ac8;
 }
 

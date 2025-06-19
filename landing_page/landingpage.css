@@ -53,7 +53,7 @@ body {
     background-size: cover;
     background-position: center;
     position: relative;
-    background-image: url(/images/landing.jpg);
+    background-image: url(../images/landing.jpg);
 }
 
 .cover {
@@ -300,4 +300,96 @@ body {
 .footer-bottom {
     text-align: center;
     margin-top: 20px;
+}
+
+@media (max-width: 700px) {
+    .nav-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 5px;
+    }
+    .nav-bar img {
+        height: 40px;
+        margin-bottom: 5px;
+    }
+    .nav-bar ul {
+        flex-direction: column;
+        width: 100%;
+    }
+    .nav-bar li {
+        margin: 10px 0 0 0;
+        font-size: 18px;
+    }
+    .cover h1 {
+        font-size: 2.5em;
+        letter-spacing: 8px;
+    }
+    .cover h2 {
+        font-size: 1.2em;
+        letter-spacing: 6px;
+    }
+    .cover {
+        padding: 0 10px;
+    }
+    #aboutPage {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 5px 30px 5px;
+    }
+    #aboutPage h2 {
+        font-size: 2em;
+        letter-spacing: 5px;
+    }
+    #aboutPage p, #aboutPage h4 {
+        font-size: 1em;
+    }
+    .about-content {
+        padding: 10px;
+        max-width: 100%;
+    }
+    #servicesPage {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+    .left-panel {
+        width: 100%;
+        border: none;
+        padding: 10px 0;
+        text-align: center;
+    }
+    .main-content {
+        margin-left: 0;
+    }
+    .top-panel {
+        margin-left: 0;
+        padding: 10px 0;
+    }
+    .service-boxes {
+        flex-direction: column;
+        margin-left: 0;
+        padding: 0 10px;
+    }
+    .service-box {
+        width: 100%;
+        margin: 10px 0 0 0;
+        font-size: 1em;
+    }
+    .service-img {
+        max-width: 90px;
+    }
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+    .logo-section {
+        margin-bottom: 10px;
+    }
+    .footer {
+        padding: 10px;
+    }
+    .footer-bottom {
+        font-size: 0.9em;
+    }
 }

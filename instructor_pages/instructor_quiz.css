@@ -1,0 +1,303 @@
+body {
+    background: #6c74a6;
+    min-height: 100vh;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    background: #e6fdff;
+    border-radius: 25px;
+    overflow: hidden;
+    max-width: 1100px;
+    width: 90vw;
+    margin: 50px auto;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+}
+.sidebar {
+    width: 270px;
+    background: #e6fdff;
+    padding: 40px 30px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 2px solid #cce6f7;
+}
+.profile_pic {
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    border: 2px solid #b3c6e0;
+}
+.profile_pic img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.sidebar h2 {
+    font-size: 1.5em;
+    margin: 0 0 18px 0;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-align: center;
+}
+.sidebar_btn {
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 12px;
+    border: 2px solid #6c74a6;
+    border-radius: 10px;
+    background: #fff;
+    color: #222;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, border 0.2s;
+    text-align: center;
+    box-sizing: border-box;
+    height: 40px;
+}
+.sidebar_btn:hover {
+    background: #dbeafe;
+    border: 2px solid #4b5278;
+}
+.settings_btn {
+    width: 90%;
+    padding: 10px 0;
+    margin-top: 30px;
+    margin-bottom: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #4b5278;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    text-align: center;
+    height: 40px;
+}
+.settings_btn:hover {
+    background: #222b4a;
+}
+.logout_btn1 {
+    width: 90%;
+    padding: 10px 0;
+    border: none;
+    border-radius: 10px;
+    background: #e74c3c;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 0;
+    text-align: center;
+    height: 40px;
+}
+.logout_btn1:hover {
+    background: #c0392b;
+}
+.main_content {
+    flex: 1;
+    padding: 60px 80px 40px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 600px;
+}
+.quiz-form {
+    width: 100%;
+    max-width: 500px;
+    background: transparent;
+    border-radius: 20px;
+    padding: 0;
+    box-shadow: none;
+    margin: 0 auto;
+}
+.quiz-title {
+    color: #5b6291;
+    font-size: 2em;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+.quiz-form label {
+    font-weight: 500;
+    color: #333;
+    display: block;
+    margin-bottom: 6px;
+}
+.quiz-form input[type="text"],
+.quiz-form select {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 18px;
+    border: 1px solid #b3c6e0;
+    border-radius: 6px;
+    font-size: 1em;
+    background: #f8fafc;
+    transition: border 0.2s;
+}
+.quiz-form input[type="text"]:focus,
+.quiz-form select:focus {
+    border: 1.5px solid #6c74a6;
+    outline: none;
+}
+.add-btn, #saveQuizBtn {
+    background: #5b6291;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 32px;
+    font-size: 1em;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.add-btn:hover, #saveQuizBtn:hover {
+    background: #4b5278;
+}
+#quizList {
+    margin-top: 30px;
+    margin-left: -50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+#quizListContainer {
+    max-height: 420px;
+    overflow-y: auto;
+    background: transparent;
+    padding: 0 0 150px 50px;
+}
+.quiz-table {
+    width: 100%;
+    background: transparent;
+    border-collapse: separate;
+    border-spacing: 0 12px;
+}
+.quiz-table th {
+    background: #e6fdff;
+    color: #5b6291;
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: 12px 0;
+    border-radius: 10px 10px 0 0;
+    border: none;
+}
+.quiz-table td {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(91,98,145,0.10);
+    padding: 18px 24px 12px 24px;
+    border: none;
+    vertical-align: top;
+    word-break: break-word;
+    white-space: pre-line;
+    max-width: 500px;
+}
+.question,
+.question.improved-question {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #4b5278;
+    word-break: break-word;
+    white-space: pre-line;
+}
+.options {
+    margin-bottom: 10px;
+}
+.options.improved-options {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.option-label {
+    font-weight: 600;
+    color: #5b6291;
+    margin-right: 4px;
+}
+.options span {
+    display: block;
+    margin-bottom: 4px;
+    color: #222;
+}
+.correct {
+    color: #1abc9c;
+    font-weight: bold;
+}
+.correct.improved-correct {
+    color: #1abc9c;
+    font-weight: bold;
+    margin-left: 10px;
+}
+.remove-btn {
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 16px;
+    font-size: 0.95em;
+    margin-top: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.remove-btn.improved-remove {
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 22px;
+    font-size: 1em;
+    font-weight: 500;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(231,76,60,0.08);
+}
+.remove-btn:hover {
+    background: #c0392b;
+}
+.remove-btn.improved-remove:hover {
+    background: #c0392b;
+}
+#saveResult {
+    margin-top: 18px;
+    font-size: 1.1em;
+    color: #1abc9c;
+    font-weight: 500;
+}
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin: 18px 0 0 0;
+}
+.pagination-controls button {
+    background: #5b6291;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 24px;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.pagination-controls button:disabled {
+    background: #b3b8d1;
+    cursor: not-allowed;
+}
+@media (max-width: 900px) {
+    .container { flex-direction: column; align-items: stretch; border-radius: 25px; }
+    .sidebar, .main_content { border-radius: 0; min-width: 320px; }
+    .main_content { margin-top: 0; padding: 30px 5vw 20px 5vw; min-width: 0; }
+}

@@ -8,7 +8,7 @@
 <body>
     <div class="container">
         <div class="nav-bar">
-            <img src="images/learnify logo.jpg" alt="logo">
+            <img src="../images/learnify logo.jpg" alt="logo">
             <div class="text-container">
                 <h4>LEARNIFY</h4>
                 <p>ELEVATE YOUR POTENTIAL</p>
@@ -56,15 +56,15 @@
                 </div>
                 <div class="service-boxes">
                     <div class="service-box">
-                        <img src="images/magnify.png" alt="explore" class="service-img">
+                        <img src="../images/magnify.png" alt="explore" class="service-img">
                         <h3>EXPLORE COURSES</h3>
                     </div>
                     <div class="service-box">
-                        <img src="images/book.png" alt="learn" class="service-img">
+                        <img src="../images/book.png" alt="learn" class="service-img">
                         <h3>LEARN AT YOUR PACE</h3>
                     </div>
                     <div class="service-box">
-                        <img src="images/chart.png" alt="track" class="service-img">
+                        <img src="../images/chart.png" alt="track" class="service-img">
                         <h3>TEST & TRACK PROGRESS</h3>
                     </div>
                 </div>

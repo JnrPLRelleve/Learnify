@@ -1,197 +1,158 @@
-html, body{
-    background-color: #383d53;
+body {
+    background: #353854;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    border: 1px solid black;
-    min-height: 1000px;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+    min-height: 80vh;
+    padding: 0;
 }
 
-.box1{
-    background-color: #f9f9f9;
-    width: 92% ;
-    height: 560px;
-    margin: auto;
-    margin-top: 50px;
-    margin-bottom: 100px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-shrink: 1;
-}
-
-.box2{    
-    background-color: #8acbd0;
-    width: 220px;
-    height: 370px;
-    align-content: center;
-    position: relative;
-    margin-left: 50px;
-    top: 80px;
-    margin-bottom: 50px;
-    border-radius: 40px;
+.sidebar {
+    background: #e6f6f8;
+    border-radius: 20px;
+    width: 320px;
+    min-width: 320px;
+    min-height: 500px;
+    margin-left: 40px;
+    margin-right: 40px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    border: 2px solid black;
-}
-
-.box3{
-    background-color: #8acbd0;
-    width: 760px;
-    height: 445px;
-    align-content: center;
     position: relative;
-    margin-left: 50px;
-    margin-bottom: 200px;
-    margin-right: 50px;
-    top: 50px;
-    border: 2px solid black;
-    display: flex;
-    align-items: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
 
-.box4{
-    background-color: #d9d9d9;
-    width: 90%; 
-    height: 85%; 
-    display: flex; 
-    margin: auto; 
-    border: 2px solid black;
+.admin-avatar {
+    width: 90px;
+    height: 90px;
+    background: #353854;
+    border-radius: 50%;
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid #e6f6f8;
     display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
-    word-wrap: break-word;
-    box-sizing: border-box;
+}
+.admin-avatar img {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
 }
 
-.box5{
-    background-color: #d9d9d9;
-    width: 25%;
-    height: 100%;
-    position: relative;
-    border: 1px solid black;
+.sidebar-content {
+    margin-top: 60px;
+    width: 100%;
     display: flex;
-}
-
-/* Box 4 Elements */
-.header2{
-    position: absolute;
-    font-size: 30px;
-    text-align: center;
-    margin-left: 300px;
-    margin-top: 130px;
-}
-
-.p1{
-    position: absolute;
-    font-size: 16px;
-    text-indent: 120px;
-    text-align: center;
-    margin-right: 50px;
-    margin-left: 70px;
-    white-space: pre;
-    margin-top: 23%;
-}
-
-/* course */
-.btn1 {
-    position: center ;
-    text-align: center;
+    flex-direction: column;
     align-items: center;
-    margin: 5px;
-    justify-content: center;
-    width: 145px;
-    height: 40px;
-    margin-top: 90px;
 }
 
-/* instructor */
-.btn2{
-    position: center ;
-    text-align: center;
-    align-items: center;
-    margin: 5px;
-    justify-content: center;
-    width: 145px;
-    height: 40px;    
+.heading {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #222;
+    letter-spacing: 1px;
 }
 
-
-
-/* students */
-.btn3{
-    position: center ;
-    text-align: center;
-    align-items: center;
-    margin: 5px;
-    justify-content: center;
-    width: 145px;
-    height: 40px;  
+.nav-btn {
+    width: 80%;
+    height: 50px;
+    background: #fff;
+    border: 2px solid #353854;
+    border-radius: 7px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #222;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
 }
 
-/* Admin List */
-.btn4{
-    background-color: #383d53;
-    color: white;
-    position: center ;
+.nav-btn.selected {
+    background: #353854;
+    color: #fff;
+    border: 3px solid #353854;
+}
+
+.admin-list-btn {
+    width: 80%;
+    height: 32px;
+    background: #353854;
+    color: #fff;
+    border: none;
     border-radius: 20px;
-    width: 130px;
-    height: 30px;
-    text-align: center;
-    align-items: center;
-    margin: 15px;
-    justify-content: center;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 90px 0 8px 0;
+    cursor: pointer;
 }
 
-/* Log out */
-.btn5 {
-    background-color: #e53935;
+.logout-btn {
+    width: 80%;
+    height: 32px;
+    background: #e53935;
     color: #fff;
     border: 2px solid #b71c1c;
     border-radius: 20px;
-    width: 130px;
-    height: 40px;
-    text-align: center;
-    align-items: center;
-    margin: 15px;
-    justify-content: center;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: bold;
+    margin-bottom: 10px;
     cursor: pointer;
     transition: background 0.2s, box-shadow 0.2s;
     box-shadow: 0 4px 12px rgba(229,57,53,0.15);
 }
 
-.btn5:hover {
-    background-color: #b71c1c;
+.logout-btn:hover {
+    background: #b71c1c;
     box-shadow: 0 6px 18px rgba(183,28,28,0.25);
 }
 
-.image1{
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    border: 2px solid black;
-    object-fit: contain; 
-    align-self: top;
-    list-style-image: url('/images/AdminPerson.jpg');
-    top: -50px;
-    position: absolute;
-    
+.main {
+    background: #8fd0d8;
+    border-radius: 8px;
+    padding: 24px 24px 24px 24px;
+    flex: 1;
+    margin-top: 0;
+    margin-right: 40px;
+    min-height: 550px;
+    min-width: 900px;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 }
 
-.heading{
-    font-size: 35px;
+.welcome-heading {
+    font-size: 2rem;
     font-weight: bold;
-    text-align: center;
-    top:10%;
-    position: absolute;
+    color: #353854;
+    margin-bottom: 18px;
 }
 
-
-
+.welcome-message {
+    font-size: 1.1rem;
+    color: #222;
+    margin-bottom: 0;
+}
 
 /* Cellphone*/
 @media only screen and (max-width: 475px){

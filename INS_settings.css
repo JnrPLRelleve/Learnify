@@ -1,0 +1,97 @@
+body {
+    background-color: #5b6291;
+    font-family: Arial, sans-serif;
+}
+.settings-container {
+    background:rgb(4, 26, 28);
+    border-radius: 20px;
+    border: 2px solid #2d314d;
+    margin: 40px auto;
+    padding: 24px 24px 16px 24px;
+    max-width: 900px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    min-height: 520px;
+    margin-top: 150px;
+    
+
+}
+.settings-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-right: 32px;
+    min-width: 200px;
+}
+.settings-sidebar button {
+    padding: 10px 0;
+    font-size: 1.1em;
+    border: 1px solid #2d314d;
+    border-radius: 4px;
+    background: #fff;
+    color: #2d314d;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.settings-sidebar button.active, .settings-sidebar button:hover {
+    background: #2d314d;
+    color: #fff;
+}
+.settings-sidebar h2 span {
+    font-size: 1em;
+    font-weight: 400;
+    color: white;
+    margin-top: 10px;
+    margin-left: 55px;
+}
+.settings-content {
+    background: #393f5c;
+    color: #fff;
+    border-radius: 12px;
+    flex: 1;
+    min-height: 460px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    transition: background 0.2s;
+    margin-top: 50px;
+}
+.back-btn {
+    margin-top: 40px;
+    padding: 8px 32px;
+    border-radius: 20px;
+    background: #393f5c;
+    color: #fff;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.back-btn:hover {
+    background: #22253a;
+}
+@media (max-width: 700px) {
+    .settings-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .settings-sidebar {
+        flex-direction: row;
+        gap: 8px;
+        margin-bottom: 18px;
+        margin-right: 0;
+    }
+    
+}
+.profile_pic img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #2d314d;
+    margin-bottom: 16px;
+    margin-left: 50px;
+}
