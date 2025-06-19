@@ -1,0 +1,41 @@
+.results-container {
+    background: #fff;
+    border-radius: 12px;
+    padding: 32px 28px 24px 28px;
+    max-width: 700px;
+    margin: 40px auto 0 auto;
+    box-shadow: 0 2px 12px rgba(91,98,145,0.08);
+}
+.results-title {
+    color: #5b6291;
+    margin-bottom: 24px;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+.result-row {
+    background: #e6fdff;
+    border-radius: 10px;
+    padding: 18px 18px 12px 18px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 6px rgba(91,98,145,0.06);
+}
+.result-row .quiz-name {
+    font-size: 1.13em;
+    font-weight: 600;
+    color: #222;
+}
+.result-row .course-title {
+    font-size: 1em;
+    color: #5b6291;
+    margin-bottom: 6px;
+}
+.result-row .score {
+    font-size: 1.1em;
+    color: #27ae60;
+    font-weight: 600;
+}
+.result-row .submitted {
+    font-size: 0.98em;
+    color: #888;
+    margin-top: 4px;
+}
