@@ -13,56 +13,32 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['ajax'])) {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $fullname = $conn->real_escape_string($_POST['fullname']);
     $username = $conn->real_escape_string($_POST['username']);
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
     $role = 'instructor';
     $status = 'pending';
     $created_at = date("Y-m-d H:i:s");
-
-  
+    $user_id = isset($_POST['user_id']) ? $conn->real_escape_string($_POST['user_id']) : '';
+    if (!$user_id) {
+        die("Invalid registration. No user_id.");
+    }
     $check_sql = "SELECT * FROM users WHERE username = '$username'";
     $check_result = $conn->query($check_sql);
-
     if ($check_result->num_rows > 0) {
-        echo json_encode(["status" => "error", "message" => "Username already exists."]);
-    } else {
-       
-        $sql_last_instructor_id = "SELECT user_id FROM users WHERE user_id LIKE 'INT-BN-%' ORDER BY created_at DESC LIMIT 1";
-        $result_instructor = $conn->query($sql_last_instructor_id);
-
-        if ($result_instructor->num_rows > 0) {
-            $row_instructor = $result_instructor->fetch_assoc();
-            $last_instructor_id = $row_instructor['user_id'];
-            $last_instructor_number = (int)substr($last_instructor_id, strrpos($last_instructor_id, '-') + 1);
-            $new_instructor_number = str_pad($last_instructor_number + 1, 2, '0', STR_PAD_LEFT);
-            $user_id = 'INT-BN-' . $new_instructor_number;
-        } else {
-            $user_id = 'INT-BN-01';
-        }
-
-        
-        $sql = "INSERT INTO users (user_id, fullname, username, password, role, status, created_at) VALUES ('$user_id', '$fullname', '$username', '$password', '$role', '$status', '$created_at')";
-
-        if ($conn->query($sql) === TRUE) {
-            $_SESSION['username'] = $username;
-            $_SESSION['role'] = $role;
-            if (isset($_POST['ajax'])) {
-                echo json_encode(["status" => "success", "message" => "Signup successful! Please log in.", "redirect" => "loginpage.php"]);
-            } else {
-                echo "<script>alert('Signup successful! Please log in.'); window.location.href='loginpage.php';</script>";
-            }
-            exit();
-        } else {
-            if (isset($_POST['ajax'])) {
-                echo json_encode(["status" => "error", "message" => "Error: " . $conn->error]);
-            } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
-            }
-        }
+        echo "<script>alert('Username already exists.'); window.location.href='signup_Instructor.php';</script>";
+        exit();
     }
-    exit();
+    $sql = "INSERT INTO users (user_id, fullname, username, password, role, status, created_at) VALUES ('$user_id', '$fullname', '$username', '$password', '$role', '$status', '$created_at')";
+    if ($conn->query($sql) === TRUE) {
+        $_SESSION['username'] = $username;
+        $_SESSION['role'] = $role;
+        echo "<script>alert('Signup successful! Please log in.'); window.location.href='loginpage.php';</script>";
+        exit();
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
 }
 
 $conn->close();
@@ -98,3 +74,49 @@ $conn->close();
     </div>
 </body>
 </html>
+<script>
+async function getNextInstructorId() {
+    // AJAX to get next instructor user_id from server
+    const res = await fetch('get_next_instructor_id.php');
+    const data = await res.json();
+    return data.user_id;
+}
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form');
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const user_id = await getNextInstructorId();
+        let modal = document.createElement('div');
+        modal.style.position = 'fixed';
+        modal.style.top = 0;
+        modal.style.left = 0;
+        modal.style.width = '100vw';
+        modal.style.height = '100vh';
+        modal.style.background = 'rgba(0,0,0,0.5)';
+        modal.style.display = 'flex';
+        modal.style.justifyContent = 'center';
+        modal.style.alignItems = 'center';
+        modal.style.zIndex = 9999;
+        modal.innerHTML = `<div style='background:#fff;padding:32px 24px;border-radius:12px;max-width:90vw;text-align:center;'><h2>Signup: Confirm Your User ID</h2><p>Your User ID is:</p><input id='userIdValue' value='${user_id}' readonly style='font-size:1.3em;font-weight:bold;margin-bottom:18px;text-align:center;border:none;background:transparent;width:100%;'><label style='display:block;margin-bottom:12px;'><input type='checkbox' id='agreeCheck'> I agree</label><button id='copyUserIdBtn' style='padding:8px 18px;border-radius:8px;background:#5b6291;color:#fff;border:none;cursor:pointer;font-size:1em;'>Copy User ID & Register</button><br><button id='cancelBtn' style='margin-top:10px;padding:6px 18px;border-radius:8px;background:#bbb;color:#222;border:none;cursor:pointer;font-size:1em;'>Cancel</button></div>`;
+        document.body.appendChild(modal);
+        document.getElementById('copyUserIdBtn').onclick = function() {
+            var agree = document.getElementById('agreeCheck').checked;
+            if (!agree) { alert('You must agree before proceeding.'); return; }
+            var userId = document.getElementById('userIdValue').value;
+            navigator.clipboard.writeText(userId).then(function(){
+                // Add hidden input and submit
+                let hidden = document.createElement('input');
+                hidden.type = 'hidden';
+                hidden.name = 'user_id';
+                hidden.value = userId;
+                form.appendChild(hidden);
+                modal.remove();
+                form.submit();
+            });
+        };
+        document.getElementById('cancelBtn').onclick = function() {
+            modal.remove();
+        };
+    });
+});
+</script>

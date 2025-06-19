@@ -58,7 +58,7 @@ $conn->close();
                 <input type="text" name="username" id="username" required><br>
                 <label for="password">Password</label><br>
                 <input type="password" name="password" id="password" minlength="8" maxlength="16" required><br>
-                <a href="#" target="_blank" id="forgot_password">Forgot Password?</a><br>
+                <a href="forgot_password.php" target="_blank" id="forgot_password">Forgot Password?</a><br>
                 <input type="submit" value="LOGIN"><br>
                 <a href="../ADMIN_PAGES/loginpage_Admin.php" id="signup">ADMIN</a></p>
                 <p class="new">New User? <a href="role_Selection.html" id="signup">Signup</a></p>
