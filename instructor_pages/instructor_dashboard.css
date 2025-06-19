@@ -19,9 +19,9 @@ body {
     border-radius: 25px;
     overflow: hidden;
     max-width: 1200px;
-    max-height: 800px;
+    max-height: 900px;
     width: 100%;
-    height: 600px;
+    height: 650px;
     flex-direction: row;
 }
 
@@ -47,39 +47,52 @@ body {
     font-size: 24px;
 }
 
-.sidebar_btn, .settings_btn{
+.sidebar_btn {
     width: 100%;
-    padding: 5px;
-    margin: 10px;
-    border: 2px solid #5b6291;
-    background: white;
+    padding: 10px 0;
+    margin-bottom: 12px;
+    border: 2px solid #6c74a6;
+    border-radius: 10px;
+    background: #fff;
+    color: #222;
+    font-size: 1em;
+    font-weight: 500;
     cursor: pointer;
-    font-size: 16px;
+    transition: background 0.2s, border 0.2s;
+    text-align: center;
+    box-sizing: border-box;
+    height: 40px;
+}
+.sidebar_btn:hover {
+    background: #dbeafe;
+    border: 2px solid #4b5278;
 }
 
-.settings_btn {
-    font-size: 12px;
+.settings_btn{
+    width: 210px;
+    
     background-color: #5b6291;
     color: white;
-    border-radius: 20px;
-    margin-top: 150px;
-    height: 90px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 10px;
+    margin-top: 100px;
+    height: 100px;
+    
 }
 
 .logout_btn {
     background-color: #e53935;
     color: #fff;
-    border: none;
-    border-radius: 20px;
-    width: 200px;
-    height: 90px;
+    border: 2px;
+    width: 210px;
+    height: 70px;
+    margin-top: 20px;
+    margin-bottom: 15px;
     text-align: center;
-    align-items: center;
-    margin: 15px 0;
-    justify-content: center;
     font-size: 16px;
-    cursor: pointer;
     transition: background 0.2s;
+    border-radius: 10px;
 }
 
 .logout_btn:hover {
@@ -208,7 +221,8 @@ body {
     border: none;
 }
 
-.modal {
+/* Modal Styles */
+#courseDetailModal.modal, #uploadModal.modal {
     display: none;
     position: fixed;
     z-index: 1000;
@@ -221,12 +235,10 @@ body {
     justify-content: center;
     align-items: center;
 }
-
-.modal.show {
+#courseDetailModal.modal.show, #uploadModal.modal.show {
     display: flex;
 }
-
-.modal_content {
+#courseDetailModal .modal_content, #uploadModal .modal_content {
     background: #fff;
     margin: auto;
     padding: 30px 40px;
@@ -239,13 +251,11 @@ body {
     flex-direction: column;
     align-items: center;
     border: 3px solid #5b6291;
-    font-size: 1.15em; 
+    font-size: 1.15em;
 }
-
 #courseDetailModal h1, #courseDetailModal p, #courseDetailModal span {
     font-size: 1.15em;
 }
-
 .close_modal {
     position: absolute;
     top: 10px;
@@ -257,6 +267,38 @@ body {
     padding: 5px 10px;
     cursor: pointer;
     font-size: 18px;
+}
+#uploadForm {
+    width: 100%;
+}
+#uploadForm label {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+}
+#uploadForm input,
+#uploadForm textarea,
+#uploadForm select {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+#uploadForm textarea {
+    resize: vertical;
+    height: 100px;
+}
+#uploadStatus {
+    margin-top: 10px;
+    color: #007bff;
+}
+#fileListForCourse {
+    margin-top: 12px;
+}
+.modalTitle {
+    font-size: 2em;
+    margin-bottom: 10px;
 }
 
 h1 {

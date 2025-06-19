@@ -1,0 +1,97 @@
+body {
+    background: #e6fdff;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+.sidebar {
+    background: #f8fafd;
+    padding: 32px 24px;
+    min-width: 220px;
+    border-right: 1.5px solid #b3dbe6;
+}
+.sidebar h2 {
+    font-size: 1.3em;
+    margin-bottom: 24px;
+    color: #38406a;
+}
+.main_content {
+    flex: 1;
+    padding: 32px 48px;
+}
+.materials-list {
+    margin-top: 24px;
+    max-height: 420px;
+    overflow-y: auto;
+}
+.materials-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(91,98,145,0.08);
+    overflow: hidden;
+}
+.materials-table th, .materials-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #e6fdff;
+    text-align: left;
+}
+.materials-table th {
+    background: #e6fdff;
+    color: #38406a;
+    font-weight: 600;
+}
+.materials-table tr:last-child td {
+    border-bottom: none;
+}
+.materials-table a {
+    color: #007bff;
+    text-decoration: underline;
+}
+.materials-table button {
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 18px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.2s;
+}
+.materials-table button:hover {
+    background: #d93636;
+}
+#uploadForm {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+#uploadForm label {
+    font-weight: 500;
+}
+#uploadForm input[type="file"] {
+    border: 1px solid #b3dbe6;
+    border-radius: 6px;
+    padding: 6px;
+    background: #f8fafd;
+}
+#uploadForm button {
+    background: #27ae60;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 22px;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#uploadForm button:hover {
+    background: #219150;
+}

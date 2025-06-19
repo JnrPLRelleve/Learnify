@@ -45,6 +45,19 @@ if (
         $_SESSION['alert'] = '<div style="color:red;text-align:center;">Instructor not found.</div>';
     }
 }
+
+$profilePic = '../images/AdminPerson.jpg'; // default
+if (isset($_SESSION['username'])) {
+    $user_stmt = $conn->prepare('SELECT profile_picture FROM users WHERE username = ?');
+    $user_stmt->bind_param('s', $_SESSION['username']);
+    $user_stmt->execute();
+    $user_stmt->bind_result($profile_picture);
+    $user_stmt->fetch();
+    $user_stmt->close();
+    if (!empty($profile_picture) && file_exists('../images/profile_pics/' . $profile_picture)) {
+        $profilePic = '../images/profile_pics/' . $profile_picture;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,12 +72,14 @@ if (
     
     <div class="container">
         <aside class="sidebar">
-            <div class="profile_pic"><img src="../images/AdminPerson.jpg" alt="sample"></div>
-            <h2>INSTRUCTOR</h2>
+            <div class="profile_pic"><img src="<?php echo htmlspecialchars($profilePic); ?>" alt="sample"></div>
+            <h2><span style="font-size:1em;font-weight:400;"><?php echo htmlspecialchars($_SESSION['username']); ?></span></h2>
             <button class="sidebar_btn" onclick="window.location.href='instructor_dashboard.php'">Courses</button>
-            <button class="sidebar_btn" onclick="location.href='quiz.php'">Quiz Interface</button>
+            <button class="sidebar_btn" onclick="location.href='instructor_Quiz_Inter.php'">Quiz Interface</button>
             <button class="sidebar_btn" onclick="location.href='create_course.php'">Create Course</button>
-            <button class="settings_btn1">Settings</button>
+            <button class="sidebar_btn" onclick="location.href='manage_Materials.php'">Materials</button>
+
+            <button class="settings_btn" onclick="location.href='INS_settings.php'">Settings</button>
             <button class="logout_btn1" type="button" onclick="window.location.href='../login_pages/logout.php'">Logout</button>
         </aside>
         <main class="main_content create-course-center">
